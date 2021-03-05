@@ -10,14 +10,23 @@ import Combine
 
 class Network<T: Codable> {
     
-    public static func get(urlString: String) throws -> AnyPublisher<T, APIError> {
-        guard let url = URL(string: urlString) else {
+    public static func get(urlString: String, params: [String:String]? = nil) throws -> AnyPublisher<T, APIError> {
+        guard var urlComponents = URLComponents(string: urlString) else {
             throw APIError.invalidURL
         }
-       
+        
         let config = getConfig()
         let session = URLSession(configuration: config)
         
+        
+        if let params = params {
+            urlComponents.queryItems = [URLQueryItem]()
+            params.forEach { (key, value) in
+                let item = URLQueryItem(name: key, value: value)
+                urlComponents.queryItems?.append(item)
+            }
+        }
+        guard let url = urlComponents.url else { throw APIError.invalidURL }
         let request = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: request)

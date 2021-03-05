@@ -26,4 +26,11 @@ class SpaceTradersAPI {
         let url = Constants.API.base + "/users/\(username)/token"
         return try? Network.post(urlString: url)
     }
+    
+    public func getUserInfo(username: String, token: String) -> AnyPublisher<UserInfoResponse, APIError>? {
+        let url = Constants.API.base + "/users/\(username)"
+        return try? Network.get(urlString: url, params: [
+            "token" :   token
+        ])
+    }
 }

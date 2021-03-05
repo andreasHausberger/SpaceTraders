@@ -11,12 +11,19 @@ import Combine
 struct LoginView: View {
     @State var userName: String = ""
     @State var token: String = ""
+    
     @State var status: StatusResponse?
     @State var usernameResponse: UsernameResponse?
+    @State var userInfoResponse: UserInfoResponse?
+    
     @State var subscriptions: Set<AnyCancellable> = []
     @State var error: APIError?
     @State var showAlert: Bool = false
+    @State var redactInfo: Bool = true
+    
     let api = SpaceTradersAPI.shared
+    let storage = Storage.shared
+    
     var body: some View {
         VStack {
             Text("Welcome to SpaceTraders! 🖖")
@@ -30,8 +37,7 @@ struct LoginView: View {
                         .font(.footnote)
                     TextField("Token", text: $token)
                     
-                    HStack {
-                        Spacer()
+                  
                         Button(action: {
                             self.performUsernameCall()
                         }, label: {
@@ -39,18 +45,34 @@ struct LoginView: View {
                         })
                         .background(Color.green)
                         .foregroundColor(.white)
+                        Button(action: {
+                            self.performUserInfoCall()
+                        }, label: {
+                            Text("Login")
+                        })
                         
-                        Button(action: {}, label: {
+                        Button(action: {
+                            if let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) {
+                                self.token = token
+                            }
+                        }, label: {
                                 Text("Use Saved Token")
                         })
                         .background(Color.purple)
                         .foregroundColor(.white)
-                        Spacer()
-                    }
+                       
                 }
                 Section(header: Text("Game Status")) {
                     Text(status?.status ?? "No Status")
                         .font(.subheadline)
+                }
+                Section(header: Text("Your User Info")) {
+                    List {
+                        Text("Username: \(userInfoResponse?.user.username ?? "")")
+                        Text("Credits: \(userInfoResponse?.user.credits ?? 0)")
+                    }
+                    .redacted(reason: .init(rawValue: redactInfo ? 1 : 0))
+                    
                 }
             }
         }
@@ -77,6 +99,29 @@ struct LoginView: View {
             .store(in: &subscriptions)
     }
     
+    private func performUserInfoCall() {
+        let username = userName
+        let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) ?? self.token
+        if self.token != "" {
+            self.api.getUserInfo(username: username, token: token)?
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: break
+                    case .failure(let error):
+                        self.showAlert.toggle()
+                        self.error = error
+                    }
+                }, receiveValue: { response in
+                    UserDefaults.standard.setValue(self.token, forKey: Constants.Defaults.token)
+                    self.userInfoResponse = response
+                    self.redactInfo.toggle()
+                    hideKeyboard()
+                })
+                .store(in: &subscriptions)
+        }
+           
+    }
+    
     private func performUsernameCall() {
         self.api.postUsername(username: userName)?
             .sink(receiveCompletion: { completion in
@@ -89,6 +134,8 @@ struct LoginView: View {
                 }
             }, receiveValue: { response in
                 self.usernameResponse = response
+                token = response.token
+                UserDefaults.standard.setValue(response.token, forKey: Constants.Defaults.token)
             })
             .store(in: &subscriptions)
     }

@@ -11,4 +11,8 @@ struct Constants {
     struct API {
         static let base = "https://api.spacetraders.io"
     }
+    
+    struct Defaults {
+        static let token = "token"
+    }
 }
