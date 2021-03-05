@@ -11,6 +11,7 @@
 		E1073E0125F28BE9006D2BE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E0025F28BE9006D2BE6 /* Constants.swift */; };
 		E1073E0725F28CAA006D2BE6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E0625F28CAA006D2BE6 /* Network.swift */; };
 		E1073E1125F2982F006D2BE6 /* UsernameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E1025F2982F006D2BE6 /* UsernameResponse.swift */; };
+		E1073E1725F2A735006D2BE6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E1625F2A735006D2BE6 /* Storage.swift */; };
 		E143731825F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143732625F287EE002C380F /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143732525F287EE002C380F /* ItemListView.swift */; };
@@ -55,6 +56,7 @@
 		E1073E0025F28BE9006D2BE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1073E0625F28CAA006D2BE6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E1073E1025F2982F006D2BE6 /* UsernameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameResponse.swift; sourceTree = "<group>"; };
+		E1073E1625F2A735006D2BE6 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E143731725F28748002C380F /* SpaceTradersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTradersAPI.swift; sourceTree = "<group>"; };
 		E143732525F287EE002C380F /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		E143732C25F28845002C380F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E143731725F28748002C380F /* SpaceTradersAPI.swift */,
+				E1073E1625F2A735006D2BE6 /* Storage.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				E146F37625F2853800724ADE /* ContentView.swift in Sources */,
 				E143731825F28748002C380F /* SpaceTradersAPI.swift in Sources */,
 				E1073DFB25F28B7C006D2BE6 /* APIError.swift in Sources */,
+				E1073E1725F2A735006D2BE6 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

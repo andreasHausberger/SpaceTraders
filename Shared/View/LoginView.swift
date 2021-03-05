@@ -12,7 +12,10 @@ struct LoginView: View {
     @State var userName: String = ""
     @State var token: String = ""
     @State var status: StatusResponse?
+    @State var usernameResponse: UsernameResponse?
     @State var subscriptions: Set<AnyCancellable> = []
+    @State var error: APIError?
+    @State var showAlert: Bool = false
     let api = SpaceTradersAPI.shared
     var body: some View {
         VStack {
@@ -30,9 +33,9 @@ struct LoginView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            self.performStatusCall()
+                            self.performUsernameCall()
                         }, label: {
-                            Text("Login")
+                            Text("Claim Username")
                         })
                         .background(Color.green)
                         .foregroundColor(.white)
@@ -54,6 +57,10 @@ struct LoginView: View {
         .onAppear {
             self.performStatusCall()
         }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Error"), message: Text("This username has been claimed already"))
+        })
+        
     }
     
     private func performStatusCall() {
@@ -66,6 +73,22 @@ struct LoginView: View {
                 }
             }, receiveValue: { response in
                 self.status = response
+            })
+            .store(in: &subscriptions)
+    }
+    
+    private func performUsernameCall() {
+        self.api.postUsername(username: userName)?
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                  print("Error: \(error)")
+                    self.showAlert.toggle()
+                    self.error = error
+                }
+            }, receiveValue: { response in
+                self.usernameResponse = response
             })
             .store(in: &subscriptions)
     }

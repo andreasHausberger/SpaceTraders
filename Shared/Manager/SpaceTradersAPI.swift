@@ -17,8 +17,13 @@ class SpaceTradersAPI {
     }
     
     public func getStatus() -> AnyPublisher<StatusResponse, APIError>? {
-        let urlString = Constants.API.base
+        let urlString = Constants.API.base + "/game/status"
         
         return try? Network.get(urlString: urlString)
+    }
+    
+    public func postUsername(username: String) -> AnyPublisher<UsernameResponse, APIError>? {
+        let url = Constants.API.base + "/users/\(username)/token"
+        return try? Network.post(urlString: url)
     }
 }

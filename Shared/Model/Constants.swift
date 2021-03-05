@@ -9,6 +9,6 @@ import Foundation
 
 struct Constants {
     struct API {
-        static let base = "https://api.spacetraders.io/game/status"
+        static let base = "https://api.spacetraders.io"
     }
 }
