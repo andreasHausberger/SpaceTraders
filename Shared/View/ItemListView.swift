@@ -1,21 +1,19 @@
 //
-//  ContentView.swift
-//  Shared
+//  ItemListView.swift
+//  SpaceTraders
 //
 //  Created by Andreas Hausberger on 05.03.21.
 //
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
+struct ItemListView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
     var body: some View {
         List {
             ForEach(items) { item in
@@ -65,7 +63,6 @@ struct ContentView: View {
         }
     }
 }
-
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
@@ -73,8 +70,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct ItemListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ItemListView()
     }
 }
