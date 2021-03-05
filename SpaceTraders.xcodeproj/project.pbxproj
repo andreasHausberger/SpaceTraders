@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E146F36525F2853800724ADE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F36425F2853800724ADE /* Tests_iOS.swift */; };
+		E146F37025F2853800724ADE /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F36F25F2853800724ADE /* Tests_macOS.swift */; };
+		E146F37225F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E146F34625F2853700724ADE /* SpaceTraders.xcdatamodeld */; };
+		E146F37325F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E146F34625F2853700724ADE /* SpaceTraders.xcdatamodeld */; };
+		E146F37425F2853800724ADE /* SpaceTradersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34825F2853700724ADE /* SpaceTradersApp.swift */; };
+		E146F37525F2853800724ADE /* SpaceTradersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34825F2853700724ADE /* SpaceTradersApp.swift */; };
+		E146F37625F2853800724ADE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34925F2853700724ADE /* ContentView.swift */; };
+		E146F37725F2853800724ADE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34925F2853700724ADE /* ContentView.swift */; };
+		E146F37825F2853800724ADE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34A25F2853700724ADE /* Persistence.swift */; };
+		E146F37925F2853800724ADE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34A25F2853700724ADE /* Persistence.swift */; };
+		E146F37A25F2853800724ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E146F34B25F2853800724ADE /* Assets.xcassets */; };
+		E146F37B25F2853800724ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E146F34B25F2853800724ADE /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E146F36125F2853800724ADE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E146F34125F2853700724ADE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E146F34F25F2853800724ADE;
+			remoteInfo = "SpaceTraders (iOS)";
+		};
+		E146F36C25F2853800724ADE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E146F34125F2853700724ADE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E146F35725F2853800724ADE;
+			remoteInfo = "SpaceTraders (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E146F34725F2853700724ADE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
+		E146F34825F2853700724ADE /* SpaceTradersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTradersApp.swift; sourceTree = "<group>"; };
+		E146F34925F2853700724ADE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E146F34A25F2853700724ADE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E146F34B25F2853800724ADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E146F35025F2853800724ADE /* SpaceTraders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTraders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E146F35325F2853800724ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E146F35825F2853800724ADE /* SpaceTraders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTraders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E146F35A25F2853800724ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E146F35B25F2853800724ADE /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E146F36025F2853800724ADE /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E146F36425F2853800724ADE /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		E146F36625F2853800724ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E146F36B25F2853800724ADE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E146F36F25F2853800724ADE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		E146F37125F2853800724ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E146F34D25F2853800724ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35525F2853800724ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35D25F2853800724ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F36825F2853800724ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E146F34025F2853700724ADE = {
+			isa = PBXGroup;
+			children = (
+				E146F34525F2853700724ADE /* Shared */,
+				E146F35225F2853800724ADE /* iOS */,
+				E146F35925F2853800724ADE /* macOS */,
+				E146F36325F2853800724ADE /* Tests iOS */,
+				E146F36E25F2853800724ADE /* Tests macOS */,
+				E146F35125F2853800724ADE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E146F34525F2853700724ADE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E146F34825F2853700724ADE /* SpaceTradersApp.swift */,
+				E146F34925F2853700724ADE /* ContentView.swift */,
+				E146F34A25F2853700724ADE /* Persistence.swift */,
+				E146F34B25F2853800724ADE /* Assets.xcassets */,
+				E146F34625F2853700724ADE /* SpaceTraders.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E146F35125F2853800724ADE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E146F35025F2853800724ADE /* SpaceTraders.app */,
+				E146F35825F2853800724ADE /* SpaceTraders.app */,
+				E146F36025F2853800724ADE /* Tests iOS.xctest */,
+				E146F36B25F2853800724ADE /* Tests macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E146F35225F2853800724ADE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E146F35325F2853800724ADE /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		E146F35925F2853800724ADE /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				E146F35A25F2853800724ADE /* Info.plist */,
+				E146F35B25F2853800724ADE /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		E146F36325F2853800724ADE /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E146F36425F2853800724ADE /* Tests_iOS.swift */,
+				E146F36625F2853800724ADE /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		E146F36E25F2853800724ADE /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				E146F36F25F2853800724ADE /* Tests_macOS.swift */,
+				E146F37125F2853800724ADE /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E146F34F25F2853800724ADE /* SpaceTraders (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E146F37E25F2853800724ADE /* Build configuration list for PBXNativeTarget "SpaceTraders (iOS)" */;
+			buildPhases = (
+				E146F34C25F2853800724ADE /* Sources */,
+				E146F34D25F2853800724ADE /* Frameworks */,
+				E146F34E25F2853800724ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpaceTraders (iOS)";
+			productName = "SpaceTraders (iOS)";
+			productReference = E146F35025F2853800724ADE /* SpaceTraders.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E146F35725F2853800724ADE /* SpaceTraders (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E146F38125F2853800724ADE /* Build configuration list for PBXNativeTarget "SpaceTraders (macOS)" */;
+			buildPhases = (
+				E146F35425F2853800724ADE /* Sources */,
+				E146F35525F2853800724ADE /* Frameworks */,
+				E146F35625F2853800724ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpaceTraders (macOS)";
+			productName = "SpaceTraders (macOS)";
+			productReference = E146F35825F2853800724ADE /* SpaceTraders.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E146F35F25F2853800724ADE /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E146F38425F2853800724ADE /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				E146F35C25F2853800724ADE /* Sources */,
+				E146F35D25F2853800724ADE /* Frameworks */,
+				E146F35E25F2853800724ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E146F36225F2853800724ADE /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = E146F36025F2853800724ADE /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E146F36A25F2853800724ADE /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E146F38725F2853800724ADE /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				E146F36725F2853800724ADE /* Sources */,
+				E146F36825F2853800724ADE /* Frameworks */,
+				E146F36925F2853800724ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E146F36D25F2853800724ADE /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = E146F36B25F2853800724ADE /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E146F34125F2853700724ADE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					E146F34F25F2853800724ADE = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E146F35725F2853800724ADE = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E146F35F25F2853800724ADE = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E146F34F25F2853800724ADE;
+					};
+					E146F36A25F2853800724ADE = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E146F35725F2853800724ADE;
+					};
+				};
+			};
+			buildConfigurationList = E146F34425F2853700724ADE /* Build configuration list for PBXProject "SpaceTraders" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E146F34025F2853700724ADE;
+			productRefGroup = E146F35125F2853800724ADE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E146F34F25F2853800724ADE /* SpaceTraders (iOS) */,
+				E146F35725F2853800724ADE /* SpaceTraders (macOS) */,
+				E146F35F25F2853800724ADE /* Tests iOS */,
+				E146F36A25F2853800724ADE /* Tests macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E146F34E25F2853800724ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F37A25F2853800724ADE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35625F2853800724ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F37B25F2853800724ADE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35E25F2853800724ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F36925F2853800724ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E146F34C25F2853800724ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F37425F2853800724ADE /* SpaceTradersApp.swift in Sources */,
+				E146F37825F2853800724ADE /* Persistence.swift in Sources */,
+				E146F37225F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */,
+				E146F37625F2853800724ADE /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35425F2853800724ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F37525F2853800724ADE /* SpaceTradersApp.swift in Sources */,
+				E146F37925F2853800724ADE /* Persistence.swift in Sources */,
+				E146F37325F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */,
+				E146F37725F2853800724ADE /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F35C25F2853800724ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F36525F2853800724ADE /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E146F36725F2853800724ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E146F37025F2853800724ADE /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E146F36225F2853800724ADE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E146F34F25F2853800724ADE /* SpaceTraders (iOS) */;
+			targetProxy = E146F36125F2853800724ADE /* PBXContainerItemProxy */;
+		};
+		E146F36D25F2853800724ADE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E146F35725F2853800724ADE /* SpaceTraders (macOS) */;
+			targetProxy = E146F36C25F2853800724ADE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E146F37C25F2853800724ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E146F37D25F2853800724ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		E146F37F25F2853800724ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hausb.SpaceTraders;
+				PRODUCT_NAME = SpaceTraders;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E146F38025F2853800724ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hausb.SpaceTraders;
+				PRODUCT_NAME = SpaceTraders;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E146F38225F2853800724ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hausb.SpaceTraders;
+				PRODUCT_NAME = SpaceTraders;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E146F38325F2853800724ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hausb.SpaceTraders;
+				PRODUCT_NAME = SpaceTraders;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E146F38525F2853800724ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hausb.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SpaceTraders (iOS)";
+			};
+			name = Debug;
+		};
+		E146F38625F2853800724ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "hausb.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SpaceTraders (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E146F38825F2853800724ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "hausb.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "SpaceTraders (macOS)";
+			};
+			name = Debug;
+		};
+		E146F38925F2853800724ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZR2MYEGU5H;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "hausb.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "SpaceTraders (macOS)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E146F34425F2853700724ADE /* Build configuration list for PBXProject "SpaceTraders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E146F37C25F2853800724ADE /* Debug */,
+				E146F37D25F2853800724ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E146F37E25F2853800724ADE /* Build configuration list for PBXNativeTarget "SpaceTraders (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E146F37F25F2853800724ADE /* Debug */,
+				E146F38025F2853800724ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E146F38125F2853800724ADE /* Build configuration list for PBXNativeTarget "SpaceTraders (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E146F38225F2853800724ADE /* Debug */,
+				E146F38325F2853800724ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E146F38425F2853800724ADE /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E146F38525F2853800724ADE /* Debug */,
+				E146F38625F2853800724ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E146F38725F2853800724ADE /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E146F38825F2853800724ADE /* Debug */,
+				E146F38925F2853800724ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E146F34625F2853700724ADE /* SpaceTraders.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E146F34725F2853700724ADE /* Shared.xcdatamodel */,
+			);
+			currentVersion = E146F34725F2853700724ADE /* Shared.xcdatamodel */;
+			path = SpaceTraders.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E146F34125F2853700724ADE /* Project object */;
+}
