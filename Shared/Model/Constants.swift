@@ -14,5 +14,6 @@ struct Constants {
     
     struct Defaults {
         static let token = "token"
+        static let username = "username"
     }
 }

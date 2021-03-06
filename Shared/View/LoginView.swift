@@ -9,7 +9,10 @@ import SwiftUI
 import Combine
 
 struct LoginView: View {
-    @State var userName: String = ""
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var username: String = ""
     @State var token: String = ""
     
     @State var status: StatusResponse?
@@ -18,8 +21,12 @@ struct LoginView: View {
     
     @State var subscriptions: Set<AnyCancellable> = []
     @State var error: APIError?
-    @State var showAlert: Bool = false
     @State var redactInfo: Bool = true
+    
+    @State var showAlert: Bool = false
+    @State var showSheet: Bool = false
+    @State var showProgress: Bool = false
+
     
     let api = SpaceTradersAPI.shared
     let storage = Storage.shared
@@ -29,58 +36,47 @@ struct LoginView: View {
             Text("Welcome to SpaceTraders! 🖖")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-            
-            Form {
-                Section(header: Text("Login/Signup")) {
-                    TextField("Username", text: $userName)
-                    Text("Already have your token? Enter it below!")
-                        .font(.footnote)
-                    TextField("Token", text: $token)
-                    
-                  
-                        Button(action: {
-                            self.performUsernameCall()
-                        }, label: {
-                            Text("Claim Username")
-                        })
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        Button(action: {
-                            self.performUserInfoCall()
-                        }, label: {
-                            Text("Login")
-                        })
-                        
-                        Button(action: {
-                            if let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) {
-                                self.token = token
+            ZStack {
+                Form {
+                    Section(header: Text("Login/Signup")) {
+                        TextField("Username", text: $username)
+                        TextField("Token", text: $token)
+                        List {
+                            Button("Login") {
+                                self.performUserInfoCall()
                             }
-                        }, label: {
-                                Text("Use Saved Token")
-                        })
-                        .background(Color.purple)
-                        .foregroundColor(.white)
-                       
-                }
-                Section(header: Text("Game Status")) {
-                    Text(status?.status ?? "No Status")
-                        .font(.subheadline)
-                }
-                Section(header: Text("Your User Info")) {
-                    List {
-                        Text("Username: \(userInfoResponse?.user.username ?? "")")
-                        Text("Credits: \(userInfoResponse?.user.credits ?? 0)")
+                            Button("Insert Saved Token") {
+                                if let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) {
+                                    self.token = token
+                                }
+                            }
+                            Button("Claim New Username") {
+                                self.showSheet.toggle()
+                            }
+                        }
+                        
                     }
-                    .redacted(reason: .init(rawValue: redactInfo ? 1 : 0))
-                    
+                    Section(header: Text("Game Status")) {
+                        Text(status?.status ?? "No Status")
+                            .font(.subheadline)
+                    }
                 }
+                .blur(radius: self.showProgress ? 3.0 : 0)
+                if showProgress {
+                    ProgressView("Loading")
+                }
+                
             }
+           
         }
         .onAppear {
             self.performStatusCall()
         }
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Error"), message: Text("This username has been claimed already"))
+        })
+        .sheet(isPresented: $showSheet, content: {
+            ClaimUsernameView()
         })
         
     }
@@ -100,7 +96,10 @@ struct LoginView: View {
     }
     
     private func performUserInfoCall() {
-        let username = userName
+        withAnimation(.easeInOut) {
+            self.showProgress.toggle()
+        }
+        
         let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) ?? self.token
         if self.token != "" {
             self.api.getUserInfo(username: username, token: token)?
@@ -110,12 +109,17 @@ struct LoginView: View {
                     case .failure(let error):
                         self.showAlert.toggle()
                         self.error = error
+                        self.showProgress = false
                     }
                 }, receiveValue: { response in
                     UserDefaults.standard.setValue(self.token, forKey: Constants.Defaults.token)
+                    UserDefaults.standard.setValue(self.username, forKey: Constants.Defaults.username)
+
                     self.userInfoResponse = response
                     self.redactInfo.toggle()
                     hideKeyboard()
+                    self.showProgress = false
+                    self.presentationMode.wrappedValue.dismiss()
                 })
                 .store(in: &subscriptions)
         }
@@ -123,7 +127,7 @@ struct LoginView: View {
     }
     
     private func performUsernameCall() {
-        self.api.postUsername(username: userName)?
+        self.api.postUsername(username: username)?
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished: break
@@ -136,6 +140,7 @@ struct LoginView: View {
                 self.usernameResponse = response
                 token = response.token
                 UserDefaults.standard.setValue(response.token, forKey: Constants.Defaults.token)
+                UserDefaults.standard.setValue(response.user.name, forKey: Constants.Defaults.username)
             })
             .store(in: &subscriptions)
     }

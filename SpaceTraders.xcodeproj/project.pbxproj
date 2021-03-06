@@ -14,6 +14,10 @@
 		E1073E1725F2A735006D2BE6 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E1625F2A735006D2BE6 /* Storage.swift */; };
 		E1073E2125F2AC78006D2BE6 /* UserInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E2025F2AC78006D2BE6 /* UserInfoResponse.swift */; };
 		E1073E2C25F2B33A006D2BE6 /* View+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E2B25F2B33A006D2BE6 /* View+hideKeyboard.swift */; };
+		E1073E3625F2BFC4006D2BE6 /* ClaimUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E3525F2BFC4006D2BE6 /* ClaimUsernameView.swift */; };
+		E1073E3725F2BFC4006D2BE6 /* ClaimUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E3525F2BFC4006D2BE6 /* ClaimUsernameView.swift */; };
+		E1073E3D25F2C0A8006D2BE6 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E3C25F2C0A7006D2BE6 /* GameView.swift */; };
+		E1073E3E25F2C0A8006D2BE6 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E3C25F2C0A7006D2BE6 /* GameView.swift */; };
 		E143731825F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143732625F287EE002C380F /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143732525F287EE002C380F /* ItemListView.swift */; };
@@ -61,6 +65,8 @@
 		E1073E1625F2A735006D2BE6 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E1073E2025F2AC78006D2BE6 /* UserInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoResponse.swift; sourceTree = "<group>"; };
 		E1073E2B25F2B33A006D2BE6 /* View+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+hideKeyboard.swift"; sourceTree = "<group>"; };
+		E1073E3525F2BFC4006D2BE6 /* ClaimUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimUsernameView.swift; sourceTree = "<group>"; };
+		E1073E3C25F2C0A7006D2BE6 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		E143731725F28748002C380F /* SpaceTradersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTradersAPI.swift; sourceTree = "<group>"; };
 		E143732525F287EE002C380F /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		E143732C25F28845002C380F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 				E146F34925F2853700724ADE /* ContentView.swift */,
 				E143732525F287EE002C380F /* ItemListView.swift */,
 				E143732C25F28845002C380F /* LoginView.swift */,
+				E1073E3525F2BFC4006D2BE6 /* ClaimUsernameView.swift */,
+				E1073E3C25F2C0A7006D2BE6 /* GameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,7 +412,9 @@
 				E146F37425F2853800724ADE /* SpaceTradersApp.swift in Sources */,
 				E143732D25F28845002C380F /* LoginView.swift in Sources */,
 				E143733425F28ADD002C380F /* StatusResponse.swift in Sources */,
+				E1073E3625F2BFC4006D2BE6 /* ClaimUsernameView.swift in Sources */,
 				E143732625F287EE002C380F /* ItemListView.swift in Sources */,
+				E1073E3D25F2C0A8006D2BE6 /* GameView.swift in Sources */,
 				E146F37825F2853800724ADE /* Persistence.swift in Sources */,
 				E1073E2C25F2B33A006D2BE6 /* View+hideKeyboard.swift in Sources */,
 				E1073E0725F28CAA006D2BE6 /* Network.swift in Sources */,
@@ -427,8 +437,10 @@
 				E143732E25F28845002C380F /* LoginView.swift in Sources */,
 				E143733525F28ADD002C380F /* StatusResponse.swift in Sources */,
 				E143732725F287EE002C380F /* ItemListView.swift in Sources */,
+				E1073E3E25F2C0A8006D2BE6 /* GameView.swift in Sources */,
 				E146F37925F2853800724ADE /* Persistence.swift in Sources */,
 				E146F37325F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */,
+				E1073E3725F2BFC4006D2BE6 /* ClaimUsernameView.swift in Sources */,
 				E146F37725F2853800724ADE /* ContentView.swift in Sources */,
 				E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */,
 			);
