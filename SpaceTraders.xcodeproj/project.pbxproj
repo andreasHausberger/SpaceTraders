@@ -20,6 +20,8 @@
 		E110BD9325F3875F001367C9 /* ClaimUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */; };
 		E110BD9925F3885F001367C9 /* SpacyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9825F3885F001367C9 /* SpacyButton.swift */; };
 		E110BD9A25F3885F001367C9 /* SpacyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9825F3885F001367C9 /* SpacyButton.swift */; };
+		E110BDA925F391F2001367C9 /* FinancialInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDA825F391F2001367C9 /* FinancialInfoView.swift */; };
+		E110BDAA25F391F2001367C9 /* FinancialInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDA825F391F2001367C9 /* FinancialInfoView.swift */; };
 		E143731825F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143732625F287EE002C380F /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143732525F287EE002C380F /* ItemListView.swift */; };
@@ -70,6 +72,7 @@
 		E1073E3C25F2C0A7006D2BE6 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimUsernameView.swift; sourceTree = "<group>"; };
 		E110BD9825F3885F001367C9 /* SpacyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacyButton.swift; sourceTree = "<group>"; };
+		E110BDA825F391F2001367C9 /* FinancialInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInfoView.swift; sourceTree = "<group>"; };
 		E143731725F28748002C380F /* SpaceTradersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTradersAPI.swift; sourceTree = "<group>"; };
 		E143732525F287EE002C380F /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		E143732C25F28845002C380F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 				E1073E3C25F2C0A7006D2BE6 /* GameView.swift */,
 				E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */,
 				E110BD9F25F3895A001367C9 /* Component */,
+				E110BDA825F391F2001367C9 /* FinancialInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -425,6 +429,7 @@
 				E143732D25F28845002C380F /* LoginView.swift in Sources */,
 				E110BD9225F3875F001367C9 /* ClaimUsernameView.swift in Sources */,
 				E143733425F28ADD002C380F /* StatusResponse.swift in Sources */,
+				E110BDA925F391F2001367C9 /* FinancialInfoView.swift in Sources */,
 				E143732625F287EE002C380F /* ItemListView.swift in Sources */,
 				E1073E3D25F2C0A8006D2BE6 /* GameView.swift in Sources */,
 				E146F37825F2853800724ADE /* Persistence.swift in Sources */,
@@ -456,6 +461,7 @@
 				E146F37925F2853800724ADE /* Persistence.swift in Sources */,
 				E146F37325F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */,
 				E146F37725F2853800724ADE /* ContentView.swift in Sources */,
+				E110BDAA25F391F2001367C9 /* FinancialInfoView.swift in Sources */,
 				E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
