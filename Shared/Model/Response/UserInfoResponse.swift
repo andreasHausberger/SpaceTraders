@@ -19,7 +19,11 @@ struct UserInfo: Codable {
 }
 
 struct Loan: Codable {
-    
+    let type: String
+    let amount: Int
+    let rate: Double
+    let termInDays: Int
+    let collateralRequired: Bool
 }
 
 struct Ship: Codable {

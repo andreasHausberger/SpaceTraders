@@ -29,28 +29,38 @@ class Network<T: Codable> {
         guard let url = urlComponents.url else { throw APIError.invalidURL }
         let request = URLRequest(url: url)
         
+        //returns a datatask publisher
+        //all .asdf operators are chained to each other, they each use the result of the previous one --> sequence matters.
         return session.dataTaskPublisher(for: request)
-            .tryMap { response in
+            .tryMap { response in // trys to map the response (data) as a HTTPURLResponse, checks Status code.
                 guard let httpURLResponse = response.response as? HTTPURLResponse,
                       httpURLResponse.statusCode == 200 else {
                     throw APIError.statusCode
                 }
                 return response.data
             }
-            .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { APIError.map($0) }
-            .eraseToAnyPublisher()
+            .decode(type: T.self, decoder: JSONDecoder()) //decodes the response.data as JSON, and tries to map it to a Codable object.
+            .mapError { APIError.map($0) } //if an error occurs during any of this, it gets mapped.
+            .eraseToAnyPublisher() // all weird stuff is erased, a clean AnyPublisher is returned - just as we want. 
     }
     
-    public static func post(urlString: String) throws -> AnyPublisher<T, APIError> {
-        guard let url = URL (string: urlString) else {
+    public static func post(urlString: String, params: [String:String]? = nil) throws -> AnyPublisher<T, APIError> {
+        guard var urlComponents = URLComponents(string: urlString) else {
             throw APIError.invalidURL
         }
         
         let config = getConfig()
         let session = URLSession(configuration: config)
         
-        var request = URLRequest(url: url)
+        if let params = params {
+            urlComponents.queryItems = [URLQueryItem]()
+            params.forEach { (key, value) in
+                let item = URLQueryItem(name: key, value: value)
+                urlComponents.queryItems?.append(item)
+            }
+        }
+        
+        var request = URLRequest(url: urlComponents.url!)
         
         request.httpMethod = "POST"
         
