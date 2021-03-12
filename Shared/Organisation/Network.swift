@@ -126,12 +126,13 @@ class Network<T: Codable> {
         
         request.httpMethod = method.rawValue
         
-        guard let bodyObject = body,
-              let bodyData = try? JSONSerialization.data(withJSONObject: bodyObject, options: .fragmentsAllowed) else {
-            throw APIError.decoding
+        if let bodyObject = body {
+            guard  let bodyData = try? JSONSerialization.data(withJSONObject: bodyObject, options: .fragmentsAllowed) else {
+                throw APIError.decoding
+            }
+            request.httpBody = bodyData
         }
         
-        request.httpBody = bodyData
         
         return session.dataTaskPublisher(for: request)
             .tryMap { response in // tries to map the response (data) as a HTTPURLResponse, checks Status code.
