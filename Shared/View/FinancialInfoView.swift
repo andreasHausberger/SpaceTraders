@@ -44,6 +44,7 @@ struct FinancialInfoView: View {
                 Alert(title: Text("Logged Out"), message: Text("The user info is no longer valid. Please log in again."), dismissButton: .default(Text("OK")) {
                     self.isLoggedIn = false
                     showLoginScreen = true
+                    Storage.logout()
 
                 })
             })
