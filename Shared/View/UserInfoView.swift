@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct FinancialInfoView: View {
+struct UserInfoView: View {
     
     @State var subscriptions: Set<AnyCancellable> = []
     
@@ -98,6 +98,6 @@ struct FinancialInfoView: View {
 
 struct FinancialInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        FinancialInfoView()
+        UserInfoView()
     }
 }

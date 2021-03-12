@@ -14,7 +14,7 @@ struct GameView: View {
    
     var body: some View {
         TabView {
-            FinancialInfoView()
+            UserInfoView()
                 .tabItem {
                     Label("Info", systemImage: "person.fill")
                 }
