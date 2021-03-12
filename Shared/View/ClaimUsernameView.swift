@@ -14,6 +14,7 @@ struct ClaimUsernameView: View {
     @State var postUsernameResponse: UsernameResponse?
     @State var isAvailable: Bool = false
     
+    
     let api = SpaceTradersAPI.shared
     
     var body: some View {

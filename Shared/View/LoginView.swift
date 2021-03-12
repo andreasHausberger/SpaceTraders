@@ -40,6 +40,7 @@ struct LoginView: View {
                 Form {
                     Section(header: Text("Login/Signup")) {
                         TextField("Username", text: $username)
+                            .autocapitalization(.none)
                         TextField("Token", text: $token)
                         List {
                             Button("Login") {
@@ -75,7 +76,12 @@ struct LoginView: View {
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Error"), message: Text("This username has been claimed already"))
         })
-        .sheet(isPresented: $showSheet, content: {
+        .sheet(isPresented: $showSheet, onDismiss: {
+            if let loginData = Storage.getUsernameAndToken() {
+                self.username = loginData.username
+                self.token = loginData.token
+            }
+        }, content: {
             ClaimUsernameView()
         })
         
