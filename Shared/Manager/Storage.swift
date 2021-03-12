@@ -23,6 +23,11 @@ class Storage {
         return nil
     }
     
+    public static func login(username: String, token: String) {
+        UserDefaults.standard.setValue(username, forKey: Constants.Defaults.username)
+        UserDefaults.standard.setValue(token, forKey: Constants.Defaults.token)
+    }
+    
     public static func logout() {
         UserDefaults.standard.removeObject(forKey: Constants.Defaults.username)
         UserDefaults.standard.removeObject(forKey: Constants.Defaults.token)

@@ -140,7 +140,7 @@ struct LoginView: View {
                 self.usernameResponse = response
                 token = response.token
                 UserDefaults.standard.setValue(response.token, forKey: Constants.Defaults.token)
-                UserDefaults.standard.setValue(response.user.name, forKey: Constants.Defaults.username)
+                UserDefaults.standard.setValue(response.user.username, forKey: Constants.Defaults.username)
             })
             .store(in: &subscriptions)
     }

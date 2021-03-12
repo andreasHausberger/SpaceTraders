@@ -17,34 +17,48 @@ struct ClaimUsernameView: View {
     let api = SpaceTradersAPI.shared
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Claim a new Username", text: $newUsername)
-                SpacyButton(color: .black) {
-                    api.postUsername(username: newUsername)?
-                        .sink(receiveCompletion: { (completion) in
-                            switch completion {
-                            case .finished: break
-
-                            case .failure(let error):
-                                print("Error \(error)")
-                                self.isAvailable = false
-                            }
-                        }, receiveValue: { (response) in
-                            self.postUsernameResponse = response
-                        })
-                        .store(in: &subscriptions)
+        NavigationView {
+            Form {
+                Section {
+                    TextField("Claim a new Username", text: $newUsername)
+                        .autocapitalization(.none)
+                    HStack {
+                        Spacer()
+                        SpacyButton(color: .black, text: "Claim") {
+                            self.claimUsername()
+                        }
+                        Spacer()
+                    }
                     
+                    VStack {
+                        Text("Availability: \(self.isAvailable ? "Available" : "Unavailable")")
+                        if (self.isAvailable) {
+                            Text("Username secured. Token: \(postUsernameResponse?.token ?? "")")
+                        }
+                    }
                 }
-                HStack {
-                    Text("Availability: ")
-                
-                }
-                
             }
+            .navigationTitle("Claim Username")
         }
-        .navigationTitle("Claim Username")
         
+    }
+    
+    private func claimUsername() {
+        api.postUsername(username: newUsername)?
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished: break
+
+                case .failure(let error):
+                    print("Error \(error)")
+                    self.isAvailable = false
+                }
+            }, receiveValue: { (response) in
+                self.postUsernameResponse = response
+                self.isAvailable = true
+                Storage.login(username: response.user.username, token: response.token)
+            })
+            .store(in: &subscriptions)
     }
 }
 

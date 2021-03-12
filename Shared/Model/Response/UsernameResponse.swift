@@ -13,15 +13,11 @@ struct UsernameResponse: Codable {
 }
 
 struct SpaceTradersUser: Codable {
-    let createdAt: Date
+    let createdAt: String
     let credits: Int
     let email: String?
     let id: String
     let picture: String?
-    let updateAt: Date?
-    let name: String
-    
-    public enum codingKeys: String, CodingKey {
-        case name = "username"
-    }
+    let updatedAt: String?
+    let username: String
 }

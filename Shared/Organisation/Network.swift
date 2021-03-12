@@ -137,7 +137,7 @@ class Network<T: Codable> {
         return session.dataTaskPublisher(for: request)
             .tryMap { response in // tries to map the response (data) as a HTTPURLResponse, checks Status code.
                 guard let httpURLResponse = response.response as? HTTPURLResponse,
-                      httpURLResponse.statusCode == 200 else {
+                      (200...299).contains(httpURLResponse.statusCode) else {
                     throw APIError.statusCode
                 }
                 return response.data

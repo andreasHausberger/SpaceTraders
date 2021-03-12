@@ -11,6 +11,7 @@ public enum APIError: Error {
     case statusCode
     case decoding
     case invalidURL
+    case alreadyExists
     case other(Error)
     
     static func map( _ error: Error) -> APIError {
