@@ -31,7 +31,7 @@ class SpaceTradersAPI {
     
     public func getUserInfo(username: String, token: String) -> AnyPublisher<UserInfoResponse, APIError>? {
         let url = Constants.API.base + "/users/\(username)"
-        return try? Network.get(urlString: url, params: [
+        return try? Network.get(urlString: url, urlParameter: [
             "token" :   token
         ])
     }
@@ -41,7 +41,7 @@ class SpaceTradersAPI {
     public func getAvailableLoans() -> AnyPublisher<AvailableLoansResponse, APIError>? {
         let url = Constants.API.base + "/game/loans"
         if let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) {
-            return try? Network.get(urlString: url, params: [
+            return try? Network.get(urlString: url, urlParameter: [
                 "token": token
             ])
         }
@@ -52,7 +52,7 @@ class SpaceTradersAPI {
         if let token = UserDefaults.standard.string(forKey: Constants.Defaults.token),
            let username = UserDefaults.standard.string(forKey: Constants.Defaults.username) {
             let url = Constants.API.base + "/users\(username)/loans"
-            return try? Network.post(urlString: url, params: [
+            return try? Network.post(urlString: url, urlParameter: [
                 "token": token,
                 "type": loanType
             ])
