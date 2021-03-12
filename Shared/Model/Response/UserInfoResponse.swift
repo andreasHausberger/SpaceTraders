@@ -19,6 +19,19 @@ struct UserInfo: Codable {
 }
 
 struct Loan: Codable {
+    var id: String
+    var due: String
+    var amount: Int
+    var status: String
+    var type: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, due, status, type
+        case amount = "repaymentAmount"
+    }
+}
+
+struct AvailableLoan: Codable {
     let type: String
     let amount: Int
     let rate: Double
@@ -28,4 +41,8 @@ struct Loan: Codable {
 
 struct Ship: Codable {
     
+}
+
+extension AvailableLoan: Identifiable {
+    var id: String { UUID().uuidString }
 }

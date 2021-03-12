@@ -26,7 +26,6 @@
 		E110BDB125F399FA001367C9 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDAF25F399FA001367C9 /* LoanView.swift */; };
 		E110BDB725F39B4A001367C9 /* AvailableLoansResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDB625F39B4A001367C9 /* AvailableLoansResponse.swift */; };
 		E110BDB825F39B4A001367C9 /* AvailableLoansResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDB625F39B4A001367C9 /* AvailableLoansResponse.swift */; };
-		E13D72C925F40A9400B7FDF1 /* ApplyLoanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D72C825F40A9400B7FDF1 /* ApplyLoanResponse.swift */; };
 		E143731825F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143731925F28748002C380F /* SpaceTradersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143731725F28748002C380F /* SpaceTradersAPI.swift */; };
 		E143732625F287EE002C380F /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143732525F287EE002C380F /* ItemListView.swift */; };
@@ -80,7 +79,6 @@
 		E110BDA825F391F2001367C9 /* FinancialInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInfoView.swift; sourceTree = "<group>"; };
 		E110BDAF25F399FA001367C9 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		E110BDB625F39B4A001367C9 /* AvailableLoansResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableLoansResponse.swift; sourceTree = "<group>"; };
-		E13D72C825F40A9400B7FDF1 /* ApplyLoanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyLoanResponse.swift; sourceTree = "<group>"; };
 		E143731725F28748002C380F /* SpaceTradersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTradersAPI.swift; sourceTree = "<group>"; };
 		E143732525F287EE002C380F /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		E143732C25F28845002C380F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				E1073E1025F2982F006D2BE6 /* UsernameResponse.swift */,
 				E1073E2025F2AC78006D2BE6 /* UserInfoResponse.swift */,
 				E110BDB625F39B4A001367C9 /* AvailableLoansResponse.swift */,
-				E13D72C825F40A9400B7FDF1 /* ApplyLoanResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 				E110BDB725F39B4A001367C9 /* AvailableLoansResponse.swift in Sources */,
 				E110BD9925F3885F001367C9 /* SpacyButton.swift in Sources */,
 				E1073E1725F2A735006D2BE6 /* Storage.swift in Sources */,
-				E13D72C925F40A9400B7FDF1 /* ApplyLoanResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

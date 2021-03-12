@@ -24,6 +24,7 @@ struct SpacyButton: View {
                 .cornerRadius(10)
                 
         })
+        .shadow(radius: 5)
     }
 }
 

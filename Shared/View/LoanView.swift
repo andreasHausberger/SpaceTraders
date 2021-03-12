@@ -10,9 +10,11 @@ import Combine
 
 struct LoanView: View {
     let api = SpaceTradersAPI.shared
-    @State var availableLoans: [Loan] = [Loan]()
+    @State var availableLoans: [AvailableLoan] = [AvailableLoan]()
     @State var subscriptions: Set<AnyCancellable> = []
     @State var isLoading = false
+    @State var selectedLoan: AvailableLoan?
+    @State var displaySheet = false
     var body: some View {
         Form {
             Text("Loans")
@@ -31,6 +33,10 @@ struct LoanView: View {
                                     .padding(.horizontal, 5)
                                     .padding(.vertical, 10)
                                     .frame(width: UIScreen.main.bounds.width * 0.75)
+                                    .onTapGesture {
+                                        self.selectedLoan = loan
+                                    }
+                                
                             }
                         }
                     }
@@ -38,6 +44,9 @@ struct LoanView: View {
                 }
             }
         }
+        .sheet(item: $selectedLoan, content: { (loan) in
+            LoanDetailView(loan: loan)
+        })
         .onAppear {
             self.getAvailableLoans()
         }
@@ -72,7 +81,7 @@ struct LoanView: View {
 }
 
 struct LoanCard: View {
-    @State var loan: Loan
+    @State var loan: AvailableLoan
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
@@ -99,9 +108,51 @@ struct LoanCard: View {
     }
 }
 
+struct LoanDetailView: View {
+    @State var loan: AvailableLoan
+    @State var subscriptions: Set<AnyCancellable> = []
+    @State var isSuccessful = false
+    var body: some View {
+        Text("Selected Loan")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+        LoanCard(loan: loan)
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: 400)
+        Divider()
+        HStack {
+            Spacer()
+            SpacyButton(color: .green, textColor: .white, image: nil, text: "Take Out Loan", action: {
+                takeOutLoan()
+            })
+            Spacer()
+            
+            if (isSuccessful) {
+                Text("Success!")
+            }
+        }
+        
+        
+    }
+    
+    private func takeOutLoan() {
+        SpaceTradersAPI.shared.applyForLoan(loanType: self.loan.type)?
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }, receiveValue: { (response) in
+                isSuccessful.toggle()
+                print("response: \(response)")
+            })
+            .store(in: &subscriptions)
+    }
+}
+
 struct LoanView_Previews: PreviewProvider {
     static var previews: some View {
-        let exampleLoan = Loan(type: "STARTUP", amount: 1000, rate: 8.76, termInDays: 10, collateralRequired: false)
+        let exampleLoan = AvailableLoan(type: "STARTUP", amount: 1000, rate: 8.76, termInDays: 10, collateralRequired: false)
         LoanView(availableLoans: [exampleLoan, exampleLoan])
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 struct AvailableLoansResponse: Codable {
-    let loans: [Loan]
+    let loans: [AvailableLoan]
 }
