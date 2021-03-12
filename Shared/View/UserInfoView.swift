@@ -22,6 +22,8 @@ struct UserInfoView: View {
 
     
     var body: some View {
+        NavigationView {
+            
             Form {
                 Text("User Info")
                     .font(.largeTitle)
@@ -39,6 +41,7 @@ struct UserInfoView: View {
                     }
                     .blur(radius: isLoading ?  /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/ : 0)
                 }
+                .redacted(reason: .init(rawValue: isLoggedIn ? 0 : 1))
             }
             .alert(isPresented: $showAlert, content: {
                 Alert(title: Text("Logged Out"), message: Text("The user info is no longer valid. Please log in again."), dismissButton: .default(Text("OK")) {
@@ -48,8 +51,18 @@ struct UserInfoView: View {
 
                 })
             })
+            .toolbar {
+                ToolbarItemGroup(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    Button("Logout") {
+                        withAnimation {
+                            self.isLoggedIn = false
+                            self.showLoginScreen = true
+                        }
+                        Storage.logout()
+                    }
+                }
+            }
             .navigationBarTitle("Space Traders")
-            .redacted(reason: .init(rawValue: isLoggedIn ? 0 : 1))
             .onAppear {
                 if UserDefaults.standard.value(forKey: Constants.Defaults.token) == nil ||
                     UserDefaults.standard.value(forKey: Constants.Defaults.username) == nil {
@@ -60,10 +73,12 @@ struct UserInfoView: View {
                     self.performUserInfoCall()
                 }
             }
-            .fullScreenCover(isPresented: $showLoginScreen, content: {
+            .fullScreenCover(isPresented: $showLoginScreen, onDismiss: {
+                self.isLoggedIn = true
+            },content: {
                 LoginView()
             })
-    
+        }
     }
     
     private func performUserInfoCall() {
