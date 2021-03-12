@@ -15,11 +15,16 @@ class Storage {
         return storage
     }
     
-    public func writeToUserDefaults<T: Any>(for key: String, value: T) {
-        UserDefaults.standard.setValue(T.self, forKey: key)
+    public static func getUsernameAndToken() -> (username: String, token: String)? {
+        if let username = UserDefaults.standard.string(forKey: Constants.Defaults.username),
+           let token = UserDefaults.standard.string(forKey: Constants.Defaults.token) {
+            return (username: username, token: token)
+        }
+        return nil
     }
     
-    public func readFromUserDefaults<T: Any>(for key: String) -> T? {
-        UserDefaults.value(forKey: key) as? T
+    public static func logout() {
+        UserDefaults.standard.removeObject(forKey: Constants.Defaults.username)
+        UserDefaults.standard.removeObject(forKey: Constants.Defaults.token)
     }
 }
