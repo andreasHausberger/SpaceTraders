@@ -13,8 +13,10 @@ struct LoanView: View {
     @State var availableLoans: [AvailableLoan] = [AvailableLoan]()
     @State var subscriptions: Set<AnyCancellable> = []
     @State var isLoading = false
-    @State var selectedLoan: AvailableLoan?
-    @State var displaySheet = false
+    @State var selectedLoanIndex: Int = 0
+    var selectedLoan: AvailableLoan {
+        availableLoans[selectedLoanIndex]
+    }
     @State var takeOutLoanIsSuccessful = false
     
     var body: some View {
@@ -27,13 +29,13 @@ struct LoanView: View {
                             .scaledToFit()
                     }
                     else {
-                        TabView(selection: $selectedLoan) {
+                        TabView(selection: $selectedLoanIndex) {
                             ForEach(0..<availableLoans.count) { index in
                                 let loan = availableLoans[index]
                                 LoanCard(loan: loan)
                                     .padding(.top, 25.0)
                                     .frame(width: 250.0, height: 150, alignment: .bottom)
-                                    .tag(loan)
+                                    .tag(index)
                             }
                         }
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
@@ -42,10 +44,10 @@ struct LoanView: View {
                 }
                 .frame(minWidth: 250.0, maxWidth: .infinity, idealHeight: 300.0)
                 Button("Take Out Loan", action: {
-                    takeOutLoan(selectedLoan!)
+                    takeOutLoan(selectedLoan)
                 })
                 .buttonStyle(SpacyButtonStyle(color: .green))
-                .disabled(selectedLoan == nil)
+                .disabled(isLoading || availableLoans.isEmpty)
                 
                 if (takeOutLoanIsSuccessful) {
                     Text("Success!")
