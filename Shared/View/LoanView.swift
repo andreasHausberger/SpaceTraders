@@ -16,10 +16,8 @@ struct LoanView: View {
     @State var selectedLoan: AvailableLoan?
     @State var displaySheet = false
     var body: some View {
+        NavigationView {
         Form {
-            Text("Loans")
-                .font(.largeTitle)
-                .fontWeight(.bold)
             Section(header: Text("Available Loans")) {
                 if (isLoading) {
                     ProgressView()
@@ -43,6 +41,8 @@ struct LoanView: View {
                     
                 }
             }
+        }
+        .navigationTitle("Loans")
         }
         .sheet(item: $selectedLoan, content: { (loan) in
             LoanDetailView(loan: loan)
@@ -82,6 +82,7 @@ struct LoanView: View {
 
 struct LoanCard: View {
     @State var loan: AvailableLoan
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
@@ -92,8 +93,8 @@ struct LoanCard: View {
                         .fontWeight(.bold)
                         .font(.title2)
                     Divider()
-                    Text("Amount: \(loan.amount)")
-                    Text("Rate: \(loan.rate)")
+                    Text("Amount: \(loan.formattedAmount)")
+                    Text("Rate: \(loan.formattedRate)")
                     Text("Term in \(loan.termInDays) days")
                     Divider()
                     Text("Collateral:")
@@ -105,6 +106,25 @@ struct LoanCard: View {
         }
         .cornerRadius(10)
         .shadow(radius: 3)
+    }
+}
+
+// Extension to format numbers for loan cards
+private extension AvailableLoan {
+    var formattedAmount: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        
+        return formatter.string(from: NSNumber(value: self.amount))!
+    }
+    
+    var formattedRate: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        return formatter.string(from: NSNumber(value: self.rate))!
     }
 }
 
