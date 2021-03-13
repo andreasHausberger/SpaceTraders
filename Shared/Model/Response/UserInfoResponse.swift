@@ -31,7 +31,7 @@ struct Loan: Codable {
     }
 }
 
-struct AvailableLoan: Codable {
+struct AvailableLoan: Codable, Hashable {
     let type: String
     let amount: Int
     let rate: Double
