@@ -15,38 +15,46 @@ struct LoanView: View {
     @State var isLoading = false
     @State var selectedLoan: AvailableLoan?
     @State var displaySheet = false
+    @State var takeOutLoanIsSuccessful = false
+    
     var body: some View {
         NavigationView {
         Form {
             Section(header: Text("Available Loans")) {
-                if (isLoading) {
-                    ProgressView()
-                }
-                else {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(alignment: .center) {
+                Group {
+                    if (isLoading) {
+                        ProgressView()
+                            .scaledToFit()
+                    }
+                    else {
+                        TabView(selection: $selectedLoan) {
                             ForEach(0..<availableLoans.count) { index in
                                 let loan = availableLoans[index]
                                 LoanCard(loan: loan)
-                                    .padding(.horizontal, 5)
-                                    .padding(.vertical, 10)
-                                    .frame(width: UIScreen.main.bounds.width * 0.75)
-                                    .onTapGesture {
-                                        self.selectedLoan = loan
-                                    }
-                                
+                                    .padding(.top, 25.0)
+                                    .frame(width: 250.0, height: 150, alignment: .bottom)
+                                    .tag(loan)
                             }
                         }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     }
-                    
                 }
+                .frame(minWidth: 250.0, maxWidth: .infinity, idealHeight: 300.0)
+                Button("Take Out Loan", action: {
+                    takeOutLoan(selectedLoan!)
+                })
+                .buttonStyle(SpacyButtonStyle(color: .green))
+                .disabled(selectedLoan == nil)
+                
+                if (takeOutLoanIsSuccessful) {
+                    Text("Success!")
+                }
+                
             }
         }
         .navigationTitle("Loans")
         }
-        .sheet(item: $selectedLoan, content: { (loan) in
-            LoanDetailView(loan: loan)
-        })
         .onAppear {
             self.getAvailableLoans()
         }
@@ -78,6 +86,21 @@ struct LoanView: View {
         withAnimation { isLoading = true }
         
     }
+    
+    private func takeOutLoan(_ loan: AvailableLoan) {
+        SpaceTradersAPI.shared.applyForLoan(loanType: loan.type)?
+            .sink(receiveCompletion: { (completion) in
+                switch completion {
+                case .finished: break
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
+            }, receiveValue: { (response) in
+                self.takeOutLoanIsSuccessful.toggle()
+                print("response: \(response)")
+            })
+            .store(in: &subscriptions)
+    }
 }
 
 struct LoanCard: View {
@@ -102,7 +125,7 @@ struct LoanCard: View {
                         .foregroundColor(loan.collateralRequired ? .red : .green)
                 }
             }
-            .padding(25)
+            .padding(15.0)
         }
         .cornerRadius(10)
         .shadow(radius: 3)
@@ -128,51 +151,11 @@ private extension AvailableLoan {
     }
 }
 
-struct LoanDetailView: View {
-    @State var loan: AvailableLoan
-    @State var subscriptions: Set<AnyCancellable> = []
-    @State var isSuccessful = false
-    var body: some View {
-        Text("Selected Loan")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-        LoanCard(loan: loan)
-            .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: 400)
-        Divider()
-        HStack {
-            Spacer()
-            SpacyButton(color: .green, textColor: .white, image: nil, text: "Take Out Loan", action: {
-                takeOutLoan()
-            })
-            Spacer()
-            
-            if (isSuccessful) {
-                Text("Success!")
-            }
-        }
-        
-        
-    }
-    
-    private func takeOutLoan() {
-        SpaceTradersAPI.shared.applyForLoan(loanType: self.loan.type)?
-            .sink(receiveCompletion: { (completion) in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            }, receiveValue: { (response) in
-                isSuccessful.toggle()
-                print("response: \(response)")
-            })
-            .store(in: &subscriptions)
-    }
-}
 
 struct LoanView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleLoan = AvailableLoan(type: "STARTUP", amount: 1000, rate: 8.76, termInDays: 10, collateralRequired: false)
-        LoanView(availableLoans: [exampleLoan, exampleLoan])
+        let exampleLoan1 = AvailableLoan(type: "TEST1", amount: 1100, rate: 9.87, termInDays: 3, collateralRequired: true)
+        LoanView(availableLoans: [exampleLoan, exampleLoan1])
     }
 }
