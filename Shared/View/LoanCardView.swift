@@ -13,7 +13,7 @@ struct LoanCardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(Color.white)
+                .fill(Color.secondary)
             HStack {
                 VStack {
                     Text(loan.type)
