@@ -25,9 +25,10 @@ struct ClaimUsernameView: View {
                         .autocapitalization(.none)
                     HStack {
                         Spacer()
-                        SpacyButton(color: .black, text: "Claim") {
+                        Button("Claim") {
                             self.claimUsername()
                         }
+                        .buttonStyle(SpacyButtonStyle(color: .black))
                         Spacer()
                     }
                     

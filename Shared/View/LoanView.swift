@@ -13,40 +13,50 @@ struct LoanView: View {
     @State var availableLoans: [AvailableLoan] = [AvailableLoan]()
     @State var subscriptions: Set<AnyCancellable> = []
     @State var isLoading = false
-    @State var selectedLoan: AvailableLoan?
-    @State var displaySheet = false
+    @State var selectedLoanIndex: Int = 0
+    var selectedLoan: AvailableLoan {
+        availableLoans[selectedLoanIndex]
+    }
+    @State var takeOutLoanIsSuccessful = false
+    
     var body: some View {
+        NavigationView {
         Form {
-            Text("Loans")
-                .font(.largeTitle)
-                .fontWeight(.bold)
             Section(header: Text("Available Loans")) {
-                if (isLoading) {
-                    ProgressView()
-                }
-                else {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(alignment: .center) {
+                Group {
+                    if (isLoading) {
+                        ProgressView()
+                            .scaledToFit()
+                    }
+                    else {
+                        TabView(selection: $selectedLoanIndex) {
                             ForEach(0..<availableLoans.count) { index in
                                 let loan = availableLoans[index]
-                                LoanCard(loan: loan)
-                                    .padding(.horizontal, 5)
-                                    .padding(.vertical, 10)
-                                    .frame(width: UIScreen.main.bounds.width * 0.75)
-                                    .onTapGesture {
-                                        self.selectedLoan = loan
-                                    }
-                                
+                                LoanCardView(loan: loan)
+                                    .padding(.top, 25.0)
+                                    .frame(width: 250.0, height: 150, alignment: .bottom)
+                                    .tag(index)
                             }
                         }
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     }
-                    
                 }
+                .frame(minWidth: 250.0, maxWidth: .infinity, idealHeight: 300.0)
+                Button("Take Out Loan", action: {
+                    takeOutLoan(selectedLoan)
+                })
+                .buttonStyle(SpacyButtonStyle(color: .green))
+                .disabled(isLoading || availableLoans.isEmpty)
+                
+                if (takeOutLoanIsSuccessful) {
+                    Text("Success!")
+                }
+                
             }
         }
-        .sheet(item: $selectedLoan, content: { (loan) in
-            LoanDetailView(loan: loan)
-        })
+        .navigationTitle("Loans")
+        }
         .onAppear {
             self.getAvailableLoans()
         }
@@ -78,64 +88,9 @@ struct LoanView: View {
         withAnimation { isLoading = true }
         
     }
-}
-
-struct LoanCard: View {
-    @State var loan: AvailableLoan
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(Color.white)
-            HStack {
-                VStack {
-                    Text(loan.type)
-                        .fontWeight(.bold)
-                        .font(.title2)
-                    Divider()
-                    Text("Amount: \(loan.amount)")
-                    Text("Rate: \(loan.rate)")
-                    Text("Term in \(loan.termInDays) days")
-                    Divider()
-                    Text("Collateral:")
-                    Image(systemName: loan.collateralRequired ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(loan.collateralRequired ? .red : .green)
-                }
-            }
-            .padding(25)
-        }
-        .cornerRadius(10)
-        .shadow(radius: 3)
-    }
-}
-
-struct LoanDetailView: View {
-    @State var loan: AvailableLoan
-    @State var subscriptions: Set<AnyCancellable> = []
-    @State var isSuccessful = false
-    var body: some View {
-        Text("Selected Loan")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-        LoanCard(loan: loan)
-            .frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: 400)
-        Divider()
-        HStack {
-            Spacer()
-            SpacyButton(color: .green, textColor: .white, image: nil, text: "Take Out Loan", action: {
-                takeOutLoan()
-            })
-            Spacer()
-            
-            if (isSuccessful) {
-                Text("Success!")
-            }
-        }
-        
-        
-    }
     
-    private func takeOutLoan() {
-        SpaceTradersAPI.shared.applyForLoan(loanType: self.loan.type)?
+    private func takeOutLoan(_ loan: AvailableLoan) {
+        SpaceTradersAPI.shared.applyForLoan(loanType: loan.type)?
             .sink(receiveCompletion: { (completion) in
                 switch completion {
                 case .finished: break
@@ -143,7 +98,7 @@ struct LoanDetailView: View {
                     print("Error: \(error)")
                 }
             }, receiveValue: { (response) in
-                isSuccessful.toggle()
+                self.takeOutLoanIsSuccessful.toggle()
                 print("response: \(response)")
             })
             .store(in: &subscriptions)
@@ -153,6 +108,7 @@ struct LoanDetailView: View {
 struct LoanView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleLoan = AvailableLoan(type: "STARTUP", amount: 1000, rate: 8.76, termInDays: 10, collateralRequired: false)
-        LoanView(availableLoans: [exampleLoan, exampleLoan])
+        let exampleLoan1 = AvailableLoan(type: "TEST1", amount: 1100, rate: 9.87, termInDays: 3, collateralRequired: true)
+        LoanView(availableLoans: [exampleLoan, exampleLoan1])
     }
 }

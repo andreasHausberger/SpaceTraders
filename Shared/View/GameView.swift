@@ -26,6 +26,10 @@ struct GameView: View {
                 .tabItem { Label("Loans", systemImage: "dollarsign.circle") }
         }
     }
-    
+}
 
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView()
+    }
 }
