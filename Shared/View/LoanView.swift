@@ -32,7 +32,7 @@ struct LoanView: View {
                         TabView(selection: $selectedLoanIndex) {
                             ForEach(0..<availableLoans.count) { index in
                                 let loan = availableLoans[index]
-                                LoanCard(loan: loan)
+                                LoanCardView(loan: loan)
                                     .padding(.top, 25.0)
                                     .frame(width: 250.0, height: 150, alignment: .bottom)
                                     .tag(index)
@@ -104,55 +104,6 @@ struct LoanView: View {
             .store(in: &subscriptions)
     }
 }
-
-struct LoanCard: View {
-    @State var loan: AvailableLoan
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                .fill(Color.white)
-            HStack {
-                VStack {
-                    Text(loan.type)
-                        .fontWeight(.bold)
-                        .font(.title2)
-                    Divider()
-                    Text("Amount: \(loan.formattedAmount)")
-                    Text("Rate: \(loan.formattedRate)")
-                    Text("Term in \(loan.termInDays) days")
-                    Divider()
-                    Text("Collateral:")
-                    Image(systemName: loan.collateralRequired ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(loan.collateralRequired ? .red : .green)
-                }
-            }
-            .padding(15.0)
-        }
-        .cornerRadius(10)
-        .shadow(radius: 3)
-    }
-}
-
-// Extension to format numbers for loan cards
-private extension AvailableLoan {
-    var formattedAmount: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 0
-        
-        return formatter.string(from: NSNumber(value: self.amount))!
-    }
-    
-    var formattedRate: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        
-        return formatter.string(from: NSNumber(value: self.rate))!
-    }
-}
-
 
 struct LoanView_Previews: PreviewProvider {
     static var previews: some View {
