@@ -18,8 +18,6 @@
 		E1073E3E25F2C0A8006D2BE6 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1073E3C25F2C0A7006D2BE6 /* GameView.swift */; };
 		E110BD9225F3875F001367C9 /* ClaimUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */; };
 		E110BD9325F3875F001367C9 /* ClaimUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */; };
-		E110BD9925F3885F001367C9 /* SpacyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9825F3885F001367C9 /* SpacyButton.swift */; };
-		E110BD9A25F3885F001367C9 /* SpacyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BD9825F3885F001367C9 /* SpacyButton.swift */; };
 		E110BDA925F391F2001367C9 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDA825F391F2001367C9 /* UserInfoView.swift */; };
 		E110BDAA25F391F2001367C9 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDA825F391F2001367C9 /* UserInfoView.swift */; };
 		E110BDB025F399FA001367C9 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110BDAF25F399FA001367C9 /* LoanView.swift */; };
@@ -46,6 +44,10 @@
 		E146F37925F2853800724ADE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146F34A25F2853700724ADE /* Persistence.swift */; };
 		E146F37A25F2853800724ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E146F34B25F2853800724ADE /* Assets.xcassets */; };
 		E146F37B25F2853800724ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E146F34B25F2853800724ADE /* Assets.xcassets */; };
+		E1C23FE325FE9E150062C4DF /* SpacyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C23FDD25FE9E120062C4DF /* SpacyButtonStyle.swift */; };
+		E1C23FF025FE9E3E0062C4DF /* SpacyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C23FDD25FE9E120062C4DF /* SpacyButtonStyle.swift */; };
+		E1C23FF625FE9E5A0062C4DF /* LoanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C23FF525FE9E5A0062C4DF /* LoanCardView.swift */; };
+		E1C23FFB25FE9E5E0062C4DF /* LoanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C23FF525FE9E5A0062C4DF /* LoanCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +77,6 @@
 		E1073E2B25F2B33A006D2BE6 /* View+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+hideKeyboard.swift"; sourceTree = "<group>"; };
 		E1073E3C25F2C0A7006D2BE6 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		E110BD9125F3875F001367C9 /* ClaimUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaimUsernameView.swift; sourceTree = "<group>"; };
-		E110BD9825F3885F001367C9 /* SpacyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacyButton.swift; sourceTree = "<group>"; };
 		E110BDA825F391F2001367C9 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		E110BDAF25F399FA001367C9 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		E110BDB625F39B4A001367C9 /* AvailableLoansResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableLoansResponse.swift; sourceTree = "<group>"; };
@@ -99,6 +100,8 @@
 		E146F36B25F2853800724ADE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E146F36F25F2853800724ADE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E146F37125F2853800724ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1C23FDD25FE9E120062C4DF /* SpacyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacyButtonStyle.swift; sourceTree = "<group>"; };
+		E1C23FF525FE9E5A0062C4DF /* LoanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +168,7 @@
 		E110BD9F25F3895A001367C9 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				E110BD9825F3885F001367C9 /* SpacyButton.swift */,
+				E1C23FDD25FE9E120062C4DF /* SpacyButtonStyle.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 		E143732025F287C6002C380F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1C23FF525FE9E5A0062C4DF /* LoanCardView.swift */,
 				E146F34925F2853700724ADE /* ContentView.swift */,
 				E143732525F287EE002C380F /* ItemListView.swift */,
 				E143732C25F28845002C380F /* LoginView.swift */,
@@ -433,10 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C23FF625FE9E5A0062C4DF /* LoanCardView.swift in Sources */,
 				E146F37425F2853800724ADE /* SpaceTradersApp.swift in Sources */,
 				E143732D25F28845002C380F /* LoginView.swift in Sources */,
 				E110BD9225F3875F001367C9 /* ClaimUsernameView.swift in Sources */,
 				E143733425F28ADD002C380F /* StatusResponse.swift in Sources */,
+				E1C23FF025FE9E3E0062C4DF /* SpacyButtonStyle.swift in Sources */,
 				E110BDA925F391F2001367C9 /* UserInfoView.swift in Sources */,
 				E143732625F287EE002C380F /* ItemListView.swift in Sources */,
 				E1073E3D25F2C0A8006D2BE6 /* GameView.swift in Sources */,
@@ -452,7 +458,6 @@
 				E1073DFB25F28B7C006D2BE6 /* APIError.swift in Sources */,
 				E1073E2125F2AC78006D2BE6 /* UserInfoResponse.swift in Sources */,
 				E110BDB725F39B4A001367C9 /* AvailableLoansResponse.swift in Sources */,
-				E110BD9925F3885F001367C9 /* SpacyButton.swift in Sources */,
 				E1073E1725F2A735006D2BE6 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,14 +466,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E110BD9A25F3885F001367C9 /* SpacyButton.swift in Sources */,
 				E146F37525F2853800724ADE /* SpaceTradersApp.swift in Sources */,
 				E143732E25F28845002C380F /* LoginView.swift in Sources */,
 				E143733525F28ADD002C380F /* StatusResponse.swift in Sources */,
+				E1C23FE325FE9E150062C4DF /* SpacyButtonStyle.swift in Sources */,
 				E110BDB825F39B4A001367C9 /* AvailableLoansResponse.swift in Sources */,
 				E110BD9325F3875F001367C9 /* ClaimUsernameView.swift in Sources */,
 				E143732725F287EE002C380F /* ItemListView.swift in Sources */,
 				E1073E3E25F2C0A8006D2BE6 /* GameView.swift in Sources */,
+				E1C23FFB25FE9E5E0062C4DF /* LoanCardView.swift in Sources */,
 				E146F37925F2853800724ADE /* Persistence.swift in Sources */,
 				E146F37325F2853800724ADE /* SpaceTraders.xcdatamodeld in Sources */,
 				E110BDB125F399FA001367C9 /* LoanView.swift in Sources */,
